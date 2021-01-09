@@ -1,9 +1,7 @@
-// let test = document.querySelector(".navbar");
-// test.style.display = 'none';
 // let imageTest = document.querySelector("#id0");
 // imageTest.style.display = 'none';
 
-queryURL = "https://www.cheapshark.com/api/1.0/deals"
+gameQueryURL = "https://www.cheapshark.com/api/1.0/deals"
 
 $.ajax({
     url: queryURL,
@@ -13,10 +11,10 @@ $.ajax({
     console.log(response);
 });
 
-apiID = '874acb4d'
-apiKey = 'e13047121612bd90dd6135495a88f82a'
+let recipeApiID = '874acb4d'
+let recipeApiKey = 'e13047121612bd90dd6135495a88f82a'
 // remember to be able to dynamically search query
-queryURL = 'https://api.edamam.com/search?q=chicken&app_id=' + apiID + '&app_key=' + apiKey;
+recipeQueryURL = 'https://api.edamam.com/search?q=chicken&app_id=' + apiID + '&app_key=' + apiKey;
 
 $.ajax({
     url: queryURL,
@@ -26,9 +24,6 @@ $.ajax({
     console.log(queryURL)
     console.log(response)
 })
-
-// function createRow 
-
 
 var j = 0
 function createRow(area, n) {
@@ -41,39 +36,26 @@ function createRow(area, n) {
     ]
     let rowDiv = $("<div>").addClass("columns")
     for (i = 0; i < n; i++) {
-
-
         let colDiv = $("<div>").addClass("column")
         let cardDiv = $("<div>").addClass("card")
         let cardContentDiv = $("<div>").addClass("card-content")
         cardContentDiv.text('asdasdasdasddsad')
         cardContentDiv= $("<img>").attr("src", arrImg[j])
-        // gameImage.attr("id","id" +j )
+        
         rowDiv.append(colDiv)
         colDiv.append(cardDiv)
         cardDiv.append(cardContentDiv)
         area.append(rowDiv);
-
-        console.log(rowDiv);
-        // console.log(gameImage)
         j++
 
     }
 }
 
+// example
+// createRow($("#preview-div"), 2);
 
-createRow($("#preview-div"), 2);
-
-
-
-
-
-
-// addEventListner for on('click') [Recipes | Games ]
+// addEventListner for on('click') [ Recipes | Games ]
 // add style.display = 'none'/'block' features - Hides or displays
 // Relocate AJAX functions
 // target specific information that you want to display from APIKey
 // Impliment either checkbox or input field to send criteria call to key
-// 
-
-// 
