@@ -41,13 +41,12 @@ function createRow(area, n) {
         let cardContentDiv = $("<div>").addClass("card-content")
         cardContentDiv.text('asdasdasdasddsad')
         cardContentDiv= $("<img>").attr("src", arrImg[j])
-        
+
         rowDiv.append(colDiv)
         colDiv.append(cardDiv)
         cardDiv.append(cardContentDiv)
         area.append(rowDiv);
         j++
-
     }
 }
 
