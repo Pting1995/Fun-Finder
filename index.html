@@ -3,11 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <h1 class="is-size-3">Fun Finder</h1>
+            <!-- add burger menu if we can -->
+            <!-- <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a> -->
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item games-dir">
+                    Games
+                </a>
+                <a class="navbar-item recipes-dir">
+                    Recipes
+                </a>
+                <!-- commented out just incase we want it later -->
+                <!-- <div class="navbar-dropdown">
+                </div> --> 
+              
+            </div>
+        </div>
+        <!-- commented out just incase we want it late -->
+        <!-- <div class="navbar-end">
+        </div> -->
+        </div>
+    </nav>
+<body class="has-navbar-fixed-top"></html>
+    <div class="container">
+        <div class="columns">
+            <div class="column" id = "description-div">
+                <!-- description/search parameters -->
+            </div>
+            <div class="column" id = "preview-div">
+                <!-- previews -->
+            </div>
+            
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
+
 </body>
 </html>
