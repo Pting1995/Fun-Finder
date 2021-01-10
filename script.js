@@ -13,8 +13,6 @@ function createPreviewRow(area, n) {
         "games-div",
         "recipes-div"
     ]
-
-   
     let rowDiv = $("<div>").addClass("columns")
     for (i = 0; i < n; i++) {
         let colDiv = $("<div>").addClass("column")
@@ -27,8 +25,6 @@ function createPreviewRow(area, n) {
         cardDiv.append(cardContentDiv);
         cardContentDiv.append(img);
         area.append(rowDiv);
-        
-        
     }
     
 }
@@ -42,7 +38,7 @@ function createResultsRow(area, n) {
         let cardDiv = $("<div>").addClass("card")
         let cardContentDiv = $("<div>").addClass("card-content")
         cardContentDiv.text('asdasdasdasddsad')
-        
+        cardContentDiv.attr("id", "id" + j)
         rowDiv.append(colDiv)
         colDiv.append(cardDiv)
         cardDiv.append(cardContentDiv)
@@ -53,7 +49,6 @@ function createResultsRow(area, n) {
 
 // example
 createPreviewRow($("#preview-div"), 2);
-createResultsRow($("#preview-div"), 3)
 
 // 1. create an array inside previewrow function that contains the genre types (games, recipes)
 // 2 change the addeventlistener class tag

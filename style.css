@@ -1,3 +1,7 @@
 .card-content {
     background-color: turquoise;
 }
+
+#desc-p {
+    font-size: larger;
+}
