@@ -7,12 +7,43 @@ function createPreviewRow(area, n) {
     var arrImg = [
         "https://cdn.cnn.com/cnnnext/dam/assets/210104111236-beginner-gaming-pc-super-169.jpg",
         "https://media3.s-nbcnews.com/j/newscms/2019_41/3044956/191009-cooking-vegetables-al-1422_ae181a762406ae9dce02dd0d5453d1ba.fit-2000w.jpg"
+<<<<<<< HEAD
+    ]
+    // array of class names go here
+    let divSubjects = [
+        "games-div",
+        "recipes-div"
+=======
+>>>>>>> 1b30d7aee778f35b630fe1b03c48eeb17aff3415
     ]
     // array of class names go here
     let divSubjects = [
         "games-div",
         "recipes-div"
     ]
+
+   
+    let rowDiv = $("<div>").addClass("columns")
+    for (i = 0; i < n; i++) {
+        let colDiv = $("<div>").addClass("column")
+        let cardDiv = $("<div>").addClass("card")
+        let cardContentDiv= $("<div>").addClass(divSubjects[i])
+        cardContentDiv.addClass("card-content")
+        let img = $("<img>").attr("src", arrImg[i]) 
+        rowDiv.append(colDiv);
+        colDiv.append(cardDiv);
+        cardDiv.append(cardContentDiv);
+        cardContentDiv.append(img);
+        area.append(rowDiv);
+        
+        
+    }
+    
+}
+
+var j = 0;
+function createResultsRow(area, n) {
+
     let rowDiv = $("<div>").addClass("columns")
     for (i = 0; i < n; i++) {
         let colDiv = $("<div>").addClass("column")
@@ -38,7 +69,11 @@ function createResultsRow(area, n) {
         let cardDiv = $("<div>").addClass("card")
         let cardContentDiv = $("<div>").addClass("card-content")
         cardContentDiv.text('asdasdasdasddsad')
+<<<<<<< HEAD
         cardContentDiv.attr("id", "id" + j)
+=======
+        
+>>>>>>> 1b30d7aee778f35b630fe1b03c48eeb17aff3415
         rowDiv.append(colDiv)
         colDiv.append(cardDiv)
         cardDiv.append(cardContentDiv)
@@ -49,6 +84,10 @@ function createResultsRow(area, n) {
 
 // example
 createPreviewRow($("#preview-div"), 2);
+<<<<<<< HEAD
+=======
+createResultsRow($("#preview-div"), 3)
+>>>>>>> 1b30d7aee778f35b630fe1b03c48eeb17aff3415
 
 // 1. create an array inside previewrow function that contains the genre types (games, recipes)
 // 2 change the addeventlistener class tag
@@ -80,6 +119,11 @@ $(".games-div").on("click", function () {
         console.log(response);
     });
 })
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 1b30d7aee778f35b630fe1b03c48eeb17aff3415
 
 // add style.display = 'none'/'block' features - Hides or displays
 // target specific information that you want to display from APIKey
