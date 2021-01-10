@@ -97,52 +97,57 @@
                         <input type="checkbox">
                         Remember me
                     </label>
+
+                    <div class="buttons">
+                        <button class="button is-success  mt-4">Search Games!</button>
+                    </div>
                 </div>
             </div>
-            <!--------------------Games search query---------------------->
+            <!--------------------Recipes search query---------------------->
             <div class="card">
                 <div class="card-content">
                     <div class="field">
                         <div class="control">
-                            <input class="input is-danger is-rounded mt-4" type="text" placeholder="Danger input">
+                            <input class="input is-light is-warning is-rounded mt-4" id="dish-type" type="text"
+                                placeholder="Cuisine Type : ex) Asian/Italian/Indian">
 
                         </div>
                     </div>
-                    <div class="select is-rounded is-danger mt-3">
+                    <div class="select is-rounded is-light is-warning mt-3" id="meal-type">
                         <select>
-                            <option>Rounded dropdown</option>
-                            <option>With options</option>
+                            <option>Meal Type:</option>
+                            <option value="breakfast">Breakfast</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="dinner">Dinner</option>
+                            <option value="snack">Snack</option>
                         </select>
                     </div>
                     <br>
-                    <div class="select is-rounded is-danger mt-3">
+                    <div class="select is-rounded is-light is-warning mt-3" id="protein-type">
                         <select>
-                            <option>Rounded dropdown</option>
-                            <option>With options</option>
+                            <option>Select Protein:</option>
+                            <option vlaue="chicken">Chicken</option>
+                            <option value="pork"> Pork</option>
+                            <option value="beef"> Beef</option>
+                            <option value="fish">Fish</option>
+                            <option value="vegetarian">Vegetarian</option>
                         </select>
                     </div>
                     <br>
-                    <div class="select is-rounded is-danger mt-3">
+                    <div class="select is-rounded is-light is-warning mt-3" id="diet-type">
                         <select>
-                            <option>Rounded dropdown</option>
-                            <option>With options</option>
+                            <option>Diet Type:</option>
+                            <option value="balanced">Balanced</option>
+                            <option value="high-protein">High-protein</option>
+                            <option value="low-carb">Low-Carb</option>
+                            <option value="Low-fat">Low-fat</option>
+                            <option value="low-sodium">Low-Sodium</option>
                         </select>
                     </div>
                     <br>
-                    <label class="checkbox mt-3">
-                        <input type="checkbox">
-                        Remember me
-                    </label>
-                    <br>
-                    <label class="checkbox mt-3">
-                        <input type="checkbox">
-                        Remember me
-                    </label>
-                    <br>
-                    <label class="checkbox mt-3">
-                        <input type="checkbox">
-                        Remember me
-                    </label>
+                    <div class="buttons" id="recipeButton">
+                        <button class="button is-success  mt-4">Search Recipes!</button>
+                    </div>
                 </div>
             </div>
         </div>
