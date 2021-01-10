@@ -9,24 +9,28 @@ function createPreviewRow(area, n) {
         "https://media3.s-nbcnews.com/j/newscms/2019_41/3044956/191009-cooking-vegetables-al-1422_ae181a762406ae9dce02dd0d5453d1ba.fit-2000w.jpg"
     ]
     // array of class names go here
+    let divSubjects = [
+        "games-div",
+        "recipes-div"
+    ]
 
+   
     let rowDiv = $("<div>").addClass("columns")
     for (i = 0; i < n; i++) {
         let colDiv = $("<div>").addClass("column")
         let cardDiv = $("<div>").addClass("card")
-        let cardContentDiv = $("<div>").addClass("card-content" )
-        // iterrate thru array of class names above
-        
-        let img = $("<img>").attr("src", arrImg[k])
-        // img.attr("onclick", imageClick[k])
-        
+        let cardContentDiv= $("<div>").addClass(divSubjects[i])
+        cardContentDiv.addClass("card-content")
+        let img = $("<img>").attr("src", arrImg[i]) 
         rowDiv.append(colDiv);
         colDiv.append(cardDiv);
         cardDiv.append(cardContentDiv);
         cardContentDiv.append(img);
         area.append(rowDiv);
-        k++
+        
+        
     }
+    
 }
 
 var j = 0;
@@ -54,24 +58,23 @@ createResultsRow($("#preview-div"), 3)
 // 1. create an array inside previewrow function that contains the genre types (games, recipes)
 // 2 change the addeventlistener class tag
 
-// $(".recipes-div").on("click", function (event) {
-//     event.preventDefault()
-//     let recipeApiID = '874acb4d'
-//     let recipeApiKey = 'e13047121612bd90dd6135495a88f82a'
-//     // remember to be able to dynamically search query
-//     recipeQueryURL = 'https://api.edamam.com/search?q=chicken&app_id=' + recipeApiID + '&app_key=' + recipeApiKey;
+$(".recipes-div").on("click", function () {
+    let recipeApiID = '874acb4d'
+    let recipeApiKey = 'e13047121612bd90dd6135495a88f82a'
+    // remember to be able to dynamically search query
+    recipeQueryURL = 'https://api.edamam.com/search?q=chicken&app_id=' + recipeApiID + '&app_key=' + recipeApiKey;
 
-//     $.ajax({
-//         url: recipeQueryURL,
-//         method: "GET",
-//         cors: true
-//     }).then(function (response) {
-//         console.log(recipeQueryURL)
-//         console.log(response)
-//     })
-// })
+    $.ajax({
+        url: recipeQueryURL,
+        method: "GET",
+        cors: true
+    }).then(function (response) {
+        console.log(recipeQueryURL)
+        console.log(response)
+    })
+})
 
-$(".card-content").on("click", function () {
+$(".games-div").on("click", function () {
     gameQueryURL = "https://www.cheapshark.com/api/1.0/deals"
 
     $.ajax({
