@@ -1,5 +1,5 @@
-// let imageTest = document.querySelector("#id0");
-// imageTest.style.display = 'none';
+document.querySelector(".games-search").style.display="none"
+document.querySelector(".recipes-search").style.display="none"
 
 var k = 0
 function createPreviewRow(area, n) {
@@ -21,15 +21,13 @@ function createPreviewRow(area, n) {
         let cardContentDiv= $("<div>").addClass(divSubjects[i])
         cardContentDiv.addClass("card-content")
         let img = $("<img>").attr("src", arrImg[i]) 
+
         rowDiv.append(colDiv);
         colDiv.append(cardDiv);
         cardDiv.append(cardContentDiv);
         cardContentDiv.append(img);
         area.append(rowDiv);
-        
-        
     }
-    
 }
 
 var j = 0;
@@ -42,6 +40,7 @@ function createResultsRow(area, n) {
         let cardContentDiv = $("<div>").addClass("card-content")
         cardContentDiv.text('asdasdasdasddsad')
         cardContentDiv.attr("id", "id" + j)
+
         rowDiv.append(colDiv)
         colDiv.append(cardDiv)
         cardDiv.append(cardContentDiv)
@@ -52,24 +51,36 @@ function createResultsRow(area, n) {
 
 // example
 createPreviewRow($("#preview-div"), 2);
-createResultsRow($("#preview-div"), 3);
-
+// createResultsRow($("#preview-div"), 3);
 
 // 1. create an array inside previewrow function that contains the genre types (games, recipes)
 // 2 change the addeventlistener class tag
 
+$(".games-div").on("click", function () {
+    document.querySelector("#desc-card").style.display="none";
+    document.querySelector(".previews").style.display="none";
+    document.querySelector(".games-search").style.display="block";
+
+    gameQueryURL = "https://www.cheapshark.com/api/1.0/deals"
+
+    $.ajax({
+        url: gameQueryURL,
+        method: "GET",
+    }).then(function (response) {
+        console.log(gameQueryURL);
+        console.log(response);
+    });
+})
+
 $(".recipes-div").on("click", function () {
+    document.querySelector("#desc-card").style.display="none";
+    document.querySelector(".previews").style.display="none";
+    document.querySelector(".recipes-search").style.display="block";
+
     let recipeApiID = '874acb4d'
     let recipeApiKey = 'e13047121612bd90dd6135495a88f82a'
     // remember to be able to dynamically search query
     recipeQueryURL = 'https://api.edamam.com/search?q=chicken&app_id=' + recipeApiID + '&app_key=' + recipeApiKey;
-
-    document.querySelector("#desc-card").style.display="none";
-    document.querySelector(".previews").style.display = "none";
-    // document.querySelector(".recipes-preview").style.display = "none";
-    
-
-
 
     $.ajax({
         url: recipeQueryURL,
@@ -82,19 +93,8 @@ $(".recipes-div").on("click", function () {
 })
 
 
-$(".games-div").on("click", function () {
-    gameQueryURL = "https://www.cheapshark.com/api/1.0/deals"
 
-    $.ajax({
-        url: gameQueryURL,
-        method: "GET",
-    }).then(function (response) {
-        console.log(gameQueryURL);
-        console.log(response);
-    });
-})
 
-// add style.display = 'none'/'block' features - Hides or displays
  // target specific information that you want to display from APIKey
 // Impliment either checkbox or input field to send criteria call to key
 
