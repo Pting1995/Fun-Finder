@@ -10,11 +10,11 @@ function createPreviewRow(area, n) {
     ]
     // array of class names go here
     let divSubjects = [
-        "games-div",
-        "recipes-div"
+        "games-div games-preview",
+        "recipes-div recipes-preview"
     ]
    
-    let rowDiv = $("<div>").addClass("columns")
+    let rowDiv = $("<div>").addClass("columns previews")
     for (i = 0; i < n; i++) {
         let colDiv = $("<div>").addClass("column")
         let cardDiv = $("<div>").addClass("card")
@@ -64,6 +64,13 @@ $(".recipes-div").on("click", function () {
     // remember to be able to dynamically search query
     recipeQueryURL = 'https://api.edamam.com/search?q=chicken&app_id=' + recipeApiID + '&app_key=' + recipeApiKey;
 
+    document.querySelector("#desc-card").style.display="none";
+    document.querySelector(".previews").style.display = "none";
+    // document.querySelector(".recipes-preview").style.display = "none";
+    
+
+
+
     $.ajax({
         url: recipeQueryURL,
         method: "GET",
@@ -73,6 +80,7 @@ $(".recipes-div").on("click", function () {
         console.log(response)
     })
 })
+
 
 $(".games-div").on("click", function () {
     gameQueryURL = "https://www.cheapshark.com/api/1.0/deals"
@@ -115,3 +123,9 @@ $.ajax({
     console.log(queryURL);
     console.log(response);
 });
+
+
+function createQuery (){
+
+
+}
