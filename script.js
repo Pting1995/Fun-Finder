@@ -1,4 +1,5 @@
 document.querySelector(".games-search").style.display = "none"
+
 document.querySelector(".films-search").style.display = "none"
 document.querySelector(".recipes-search").style.display = "none"
 
@@ -49,6 +50,7 @@ function createResultsRow(area, n) {
         cardDiv.append(cardContentDiv);
         area.append(rowDiv);
         j++;
+
     }
 }
 createPreviewRow($("#preview-div"), 3);
@@ -185,7 +187,6 @@ $(".recipe-submit").on("click", function () {
         createResultsRow($('#preview-div'), 3);
         createResultsRow($('#preview-div'), 3);
         createResultsRow($('#preview-div'), 3);
-
 
         for (i = 0; i < 9; i++) {
             // let idDiv = response.id;
