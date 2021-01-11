@@ -56,6 +56,10 @@ createPreviewRow($("#preview-div"), 2);
 // 1. create an array inside previewrow function that contains the genre types (games, recipes)
 // 2 change the addeventlistener class tag
 
+
+
+
+// ----------------------------------Games Div--------------------------------------------
 $(".games-div").on("click", function () {
     document.querySelector(".games-search").style.display="block";
     document.querySelector("#desc-card").style.display="none";
@@ -64,7 +68,12 @@ $(".games-div").on("click", function () {
 })
 
 $(".games-submit").on("click", function () {
-    // left off heres
+    var gameName = $("#game-name").val()
+    var sortBy = $("#sort-by-games").val()
+    var metaCritic = $("#metacritic-games").val()
+    
+
+    console.log(gameName,sortBy,metaCritic);
 })
 
 gameQueryURL = "https://www.cheapshark.com/api/1.0/deals"
@@ -77,6 +86,9 @@ gameQueryURL = "https://www.cheapshark.com/api/1.0/deals"
         console.log(response);
     });
 
+
+
+    // ----------------------------------Recipes Div--------------------------------------------
 $(".recipes-div").on("click", function () {
     document.querySelector(".games-search").style.display="none";
     document.querySelector("#desc-card").style.display="none";
@@ -84,9 +96,16 @@ $(".recipes-div").on("click", function () {
     document.querySelector(".recipes-search").style.display="block";
 })
 
+$(".recipe-submit").on("click", function (){
+    var dishType= $("#dish-type").val()
+    var mealType= $("#meal-type-recipes").val()
+    var proteinType= $("#protein-recipes").val()
+    var dietType= $("#diet-recipes").val()
+    console.log(dishType,mealType,proteinType,dietType)
+})
+
 let recipeApiID = '874acb4d'
     let recipeApiKey = 'e13047121612bd90dd6135495a88f82a'
-    // remember to be able to dynamically search query
     recipeQueryURL = 'https://api.edamam.com/search?q=chicken&app_id=' + recipeApiID + '&app_key=' + recipeApiKey;
 
     $.ajax({
@@ -99,8 +118,6 @@ let recipeApiID = '874acb4d'
     })
 
 
- // target specific information that you want to display from APIKey
-// Impliment either checkbox or input field to send criteria call to key
 
 apiID = '874acb4d'
 apiKey = 'e13047121612bd90dd6135495a88f82a'	
@@ -117,16 +134,6 @@ $.ajax({
     console.log(queryURL)
     console.log(response)
 })
-
-
-queryURL = "https://www.cheapshark.com/api/1.0/deals"
-$.ajax({
-    url: queryURL,
-    method: "GET",
-}).then(function(response) {
-    console.log(queryURL);
-    console.log(response);
-});
 
 
 function createQuery (){
