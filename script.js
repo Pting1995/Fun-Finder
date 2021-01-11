@@ -97,16 +97,16 @@ $(".recipes-div").on("click", function () {
 })
 
 $(".recipe-submit").on("click", function (){
-    var dishType= $("#dish-type").val()
+    var cuisineType= $("#cuisine-type").val()
     var mealType= $("#meal-type-recipes").val()
     var proteinType= $("#protein-recipes").val()
     var dietType= $("#diet-recipes").val()
-    console.log(dishType,mealType,proteinType,dietType)
-})
+    console.log(mealType,proteinType,dietType,cuisineType)
+
 
 let recipeApiID = '874acb4d'
     let recipeApiKey = 'e13047121612bd90dd6135495a88f82a'
-    recipeQueryURL = 'https://api.edamam.com/search?q=chicken&app_id=' + recipeApiID + '&app_key=' + recipeApiKey;
+    recipeQueryURL = 'https://api.edamam.com/search?q=' + proteinType + '&app_id=' + recipeApiID + '&app_key=' + recipeApiKey + '&dietType=' + dietType;
 
     $.ajax({
         url: recipeQueryURL,
@@ -117,23 +117,23 @@ let recipeApiID = '874acb4d'
         console.log(response)
     })
 
-
-
-apiID = '874acb4d'
-apiKey = 'e13047121612bd90dd6135495a88f82a'	
-// queryURL = "https://api.edamam.com/search?q=chicken" + apiKey
-
-queryURL = 'https://api.edamam.com/search?q=chicken&app_id='+ apiID+ '&app_key=' + apiKey + '&from=0&to=3&calories=591-722&health=alcohol-free'
-
-
-$.ajax({
-    url: queryURL,
-    method: "GET",
-    cors: true
-}).then(function(response) {
-    console.log(queryURL)
-    console.log(response)
 })
+
+// apiID = '874acb4d'
+// apiKey = 'e13047121612bd90dd6135495a88f82a'	
+// // queryURL = "https://api.edamam.com/search?q=chicken" + apiKey
+
+// queryURL = 'https://api.edamam.com/search?q=chicken&app_id='+ apiID+ '&app_key=' + apiKey + '&from=0&to=3&calories=591-722&health=alcohol-free'
+
+
+// $.ajax({
+//     url: queryURL,
+//     method: "GET",
+//     cors: true
+// }).then(function(response) {
+//     console.log(queryURL)
+//     console.log(response)
+// })
 
 
 function createQuery (){
