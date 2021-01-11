@@ -57,9 +57,10 @@ createPreviewRow($("#preview-div"), 2);
 // 2 change the addeventlistener class tag
 
 $(".games-div").on("click", function () {
+    document.querySelector(".games-search").style.display="block";
     document.querySelector("#desc-card").style.display="none";
     document.querySelector(".previews").style.display="none";
-    document.querySelector(".games-search").style.display="block";
+    document.querySelector(".recipes-search").style.display="none";
 })
 
 $(".games-submit").on("click", function () {
@@ -77,6 +78,7 @@ gameQueryURL = "https://www.cheapshark.com/api/1.0/deals"
     });
 
 $(".recipes-div").on("click", function () {
+    document.querySelector(".games-search").style.display="none";
     document.querySelector("#desc-card").style.display="none";
     document.querySelector(".previews").style.display="none";
     document.querySelector(".recipes-search").style.display="block";
