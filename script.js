@@ -38,7 +38,6 @@ function createResultsRow(area, n) {
         let colDiv = $("<div>").addClass("column")
         let cardDiv = $("<div>").addClass("card")
         let cardContentDiv = $("<div>").addClass("card-content")
-        cardContentDiv.text('asdasdasdasddsad')
         cardContentDiv.attr("id", "id" + j)
 
         rowDiv.append(colDiv)
@@ -72,11 +71,7 @@ $(".games-submit").on("click", function () {
     var sortBy = $("#sort-by-games").val()
     var metaCritic = $("#metacritic-games").val()
     
-
-    console.log(gameName,sortBy,metaCritic);
-})
-
-gameQueryURL = "https://www.cheapshark.com/api/1.0/deals"
+    gameQueryURL = "https://www.cheapshark.com/api/1.0/deals?title=" + gameName + "&sortBy=" + sortBy + "&metacritic=" + metaCritic
 
     $.ajax({
         url: gameQueryURL,
@@ -84,9 +79,23 @@ gameQueryURL = "https://www.cheapshark.com/api/1.0/deals"
     }).then(function (response) {
         console.log(gameQueryURL);
         console.log(response);
+        createResultsRow($("#preview-div"), 3);
+        createResultsRow($("#preview-div"), 3);
+        createResultsRow($("#preview-div"), 3);
+        for (i = 0; i < 9; i++) {
+            var title = $("<p>")
+            var metacritic = $("<p>")
+            var price = $("<p>")
+
+            title.text("Title: " + response[i].title)
+            metacritic.text("Metacritic score: " + response[i].metacriticScore + " (the higher the better)")
+            price.text("Price: " + response.salesPrice)
+
+            $("#id" + i).append(title, metacritic)
+            // console.log($("#id" + i))
+        }
     });
-
-
+})
 
     // ----------------------------------Recipes Div--------------------------------------------
 $(".recipes-div").on("click", function () {
@@ -116,25 +125,6 @@ let recipeApiID = '874acb4d'
         console.log(recipeQueryURL)
         console.log(response)
     })
-
-
-
-apiID = '874acb4d'
-apiKey = 'e13047121612bd90dd6135495a88f82a'	
-// queryURL = "https://api.edamam.com/search?q=chicken" + apiKey
-
-queryURL = 'https://api.edamam.com/search?q=chicken&app_id='+ apiID+ '&app_key=' + apiKey + '&from=0&to=3&calories=591-722&health=alcohol-free'
-
-
-$.ajax({
-    url: queryURL,
-    method: "GET",
-    cors: true
-}).then(function(response) {
-    console.log(queryURL)
-    console.log(response)
-})
-
 
 function createQuery (){
 
