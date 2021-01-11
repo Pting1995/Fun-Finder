@@ -1,6 +1,7 @@
 document.querySelector(".games-search").style.display="none"
 document.querySelector(".recipes-search").style.display="none"
 
+
 var k = 0
 function createPreviewRow(area, n) {
     // update arrays when a new api is added
@@ -60,6 +61,13 @@ createPreviewRow($("#preview-div"), 2);
 
 // ----------------------------------Games Div--------------------------------------------
 $(".games-div").on("click", function () {
+    notie.alert({
+        type: 'success', // optional, default = 4, enum: [1, 2, 3, 4, 5, 'success', 'warning', 'error', 'info', 'neutral']
+        text: 'You clicked on games section!',
+        stay: false, // optional, default = false
+        time: 3, // optional, default = 3, minimum = 1,
+        position: 'bottom' // optional, default = 'top', enum: ['top', 'bottom']
+      })
     document.querySelector(".games-search").style.display="block";
     document.querySelector("#desc-card").style.display="none";
     document.querySelector(".previews").style.display="none";
@@ -83,20 +91,12 @@ $(".games-submit").on("click", function () {
         createResultsRow($("#preview-div"), 3);
         createResultsRow($("#preview-div"), 3);
         for (i = 0; i < 9; i++) {
-            var titleString = $("<p>")
-            var img = $("<img>")
-            var metacritic = $("<p>")
-            var steamRating = $("<p>")
-            var onSale = $("<p>")
-            var normPrice = $("<p>")
-
-            titleString.text("Title: " + response[i].title)
-            img.attr("src", response[i].thumb)
-            metacritic.text("Metacritic score: " + response[i].metacriticScore)
-            steamRating.text("Steam Rating: " + response[i].steamRatingPercent)
-
-            onSale.text("On Sale Price: " + response[i].salePrice)
-            normPrice.text("Normal Price: " + response[i].normalPrice)
+            var titleString = $("<p>").text("Title: " + response[i].title)
+            var img = $("<img>").attr("src", response[i].thumb)
+            var metacritic = $("<p>").text("Metacritic score: " + response[i].metacriticScore)
+            var steamRating = $("<p>").text("Steam Rating: " + response[i].steamRatingPercent)
+            var onSale = $("<p>").text("On Sale Price: " + response[i].salePrice)
+            var normPrice = $("<p>").text("Normal Price: " + response[i].normalPrice)
 
             $("#id" + i).append(titleString, img, metacritic, steamRating, onSale, normPrice)
             // console.log($("#id" + i))
