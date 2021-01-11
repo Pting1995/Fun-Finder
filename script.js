@@ -60,8 +60,13 @@ $(".games-div").on("click", function () {
     document.querySelector("#desc-card").style.display="none";
     document.querySelector(".previews").style.display="none";
     document.querySelector(".games-search").style.display="block";
+})
 
-    gameQueryURL = "https://www.cheapshark.com/api/1.0/deals"
+$(".games-submit").on("click", function () {
+    // left off heres
+})
+
+gameQueryURL = "https://www.cheapshark.com/api/1.0/deals"
 
     $.ajax({
         url: gameQueryURL,
@@ -70,14 +75,14 @@ $(".games-div").on("click", function () {
         console.log(gameQueryURL);
         console.log(response);
     });
-})
 
 $(".recipes-div").on("click", function () {
     document.querySelector("#desc-card").style.display="none";
     document.querySelector(".previews").style.display="none";
     document.querySelector(".recipes-search").style.display="block";
+})
 
-    let recipeApiID = '874acb4d'
+let recipeApiID = '874acb4d'
     let recipeApiKey = 'e13047121612bd90dd6135495a88f82a'
     // remember to be able to dynamically search query
     recipeQueryURL = 'https://api.edamam.com/search?q=chicken&app_id=' + recipeApiID + '&app_key=' + recipeApiKey;
@@ -90,9 +95,6 @@ $(".recipes-div").on("click", function () {
         console.log(recipeQueryURL)
         console.log(response)
     })
-})
-
-
 
 
  // target specific information that you want to display from APIKey
