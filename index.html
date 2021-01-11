@@ -5,18 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+    <style>
+        /* override styles here */
+        .notie-container {
+            box-shadow: none;
+        }
+    </style>
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Fun Finder</title>
 </head>
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <h1 class="is-size-3">Fun Finder</h1>
-        <!-- add burger menu if we can -->
-        <!-- <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a> -->
+
     </div>
 
     <div id="navbarBasicExample" class="navbar-menu">
@@ -24,19 +26,16 @@
             <a class="navbar-item games-div">
                 Games
             </a>
+
+            <a class="navbar-item movies-div">
+                Movies
+            </a>
             <a class="navbar-item recipes-div">
                 Recipes
             </a>
-            <!-- commented out just incase we want it later -->
-            <!-- <div class="navbar-dropdown">
-                </div> -->
-
         </div>
     </div>
-    <!-- commented out just incase we want it late -->
-    <!-- <div class="navbar-end">
-        </div> -->
-    </div>
+
 </nav>
 
 <body class="has-navbar-fixed-top">
@@ -59,23 +58,23 @@
                     <div class="field">
                         <div class="control">
                             <input class="input is-danger is-rounded mt-4" type="text"
-                                placeholder="Game keyword : ex) Mario/Skyrim" id="game-name">
+                                placeholder="Game keyword: ex) Mario/Skyrim" id="game-name">
                         </div>
                     </div>
                     <div class="select is-rounded is-danger mt-3">
                         <select id="sort-by-games">
-                            <option>Sort By:</option>
-                            <option value="deal rating">Deal Rating</option>
-                            <option value="title">Title</option>
-                            <option value="price">Price</option>
-                            <option value="reviews">Reviews</option>
-                            <option value="release">Release Date</option>
+                            <option value="Title" hidden>Sort By:</option>
+                            <option value="Deal Rating">Deal Rating</option>
+                            <option value="Title">Title</option>
+                            <option value="Price">Price</option>
+                            <option value="Reviews">Reviews</option>
+                            <option value="Release">Release Date</option>
                         </select>
                     </div>
                     <br>
                     <div class="select is-rounded is-danger mt-3">
                         <select id="metacritic-games">
-                            <option value="" disabled selected hidden>Metacritic score</option>
+                            <option value="0" hidden>Metacritic score</option>
                             <option value="90">90+</option>
                             <option value="80">80+</option>
                             <option value="70">70+</option>
@@ -92,16 +91,41 @@
                 </div>
             </div>
             <!--------------------Recipes search query---------------------->
-            <div class="card recipes-search">
+            <div class="card films-search">
                 <div class="card-content">
                     <div class="field">
                         <div class="control">
                             <input class="input is-light is-warning is-rounded mt-4" type="text"
+                                placeholder="Film keyword" id="film-keyword">
+
+                        </div>
+                    </div>
+                    <div class="select is-rounded is-light is-warning mt-3" id="movie-type">
+                        <select id="movie-type">
+                            <option>Film type:</option>
+                            <option value="movie">Movie</option>
+                            <option value="series">Series</option>
+                            <option value="episode">Episode</option>
+                        </select>
+                    </div>
+                    </br>
+                    <div class="buttons">
+                        <button class="button is-success movies-submit mt-4">Search Recipes!</button>
+                    </div>
+                </div>
+            </div>
+            <!--------------------Recipes search query---------------------->
+            <div class="card recipes-search">
+                <div class="card-content">
+                    <div class="field">
+                        <div class="control">
+
+                            <input class="input is-light is-success is-rounded mt-4" type="text"
                                 placeholder="Cuisine Type : ex) Asian/Italian/Indian" id="cuisine-type">
 
                         </div>
                     </div>
-                    <div class="select is-rounded is-light is-warning mt-3" id="meal-type">
+                    <div class="select is-rounded is-light is-success mt-3" id="meal-type">
                         <select id="meal-type-recipes">
                             <option>Meal Type:</option>
                             <option value="breakfast">Breakfast</option>
@@ -118,17 +142,23 @@
                 </div>
             </div>
         </div>
+        <div class="column" id="preview-div">
+            <!-- previews -->
+        </div>
 
         <div class="column" id="preview-div">
             <!-- previews -->
         </div>
 
     </div>
+</div>
 
+<script src="https://unpkg.com/notie"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="./script.js"></script>
+<script src="./script.js"></script>
 
-    </body>
+</body>
 
-    </html>
+</html>
+
