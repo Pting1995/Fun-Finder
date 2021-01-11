@@ -1,5 +1,5 @@
-// let imageTest = document.querySelector("#id0");
-// imageTest.style.display = 'none';
+document.querySelector(".games-search").style.display = "none"
+document.querySelector(".recipes-search").style.display = "none"
 
 var k = 0
 function createPreviewRow(area, n) {
@@ -9,23 +9,24 @@ function createPreviewRow(area, n) {
         "https://media3.s-nbcnews.com/j/newscms/2019_41/3044956/191009-cooking-vegetables-al-1422_ae181a762406ae9dce02dd0d5453d1ba.fit-2000w.jpg"
     ]
     // array of class names go here
+    let divSubjects = [
+        "games-div games-preview",
+        "recipes-div recipes-preview"
+    ]
 
-    let rowDiv = $("<div>").addClass("columns")
+    let rowDiv = $("<div>").addClass("columns previews")
     for (i = 0; i < n; i++) {
         let colDiv = $("<div>").addClass("column")
         let cardDiv = $("<div>").addClass("card")
-        let cardContentDiv = $("<div>").addClass("card-content" )
-        // iterrate thru array of class names above
-        
-        let img = $("<img>").attr("src", arrImg[k])
-        // img.attr("onclick", imageClick[k])
-        
+        let cardContentDiv = $("<div>").addClass(divSubjects[i])
+        cardContentDiv.addClass("card-content")
+        let img = $("<img>").attr("src", arrImg[i])
+
         rowDiv.append(colDiv);
         colDiv.append(cardDiv);
         cardDiv.append(cardContentDiv);
         cardContentDiv.append(img);
         area.append(rowDiv);
-        k++
     }
 }
 
@@ -37,8 +38,8 @@ function createResultsRow(area, n) {
         let colDiv = $("<div>").addClass("column")
         let cardDiv = $("<div>").addClass("card")
         let cardContentDiv = $("<div>").addClass("card-content")
-        cardContentDiv.text('asdasdasdasddsad')
-        
+        cardContentDiv.attr("id", "id" + j)
+
         rowDiv.append(colDiv)
         colDiv.append(cardDiv)
         cardDiv.append(cardContentDiv)
@@ -49,70 +50,80 @@ function createResultsRow(area, n) {
 
 // example
 createPreviewRow($("#preview-div"), 2);
-createResultsRow($("#preview-div"), 3)
+// createResultsRow($("#preview-div"), 3);
 
 // 1. create an array inside previewrow function that contains the genre types (games, recipes)
 // 2 change the addeventlistener class tag
 
-// $(".recipes-div").on("click", function (event) {
-//     event.preventDefault()
-//     let recipeApiID = '874acb4d'
-//     let recipeApiKey = 'e13047121612bd90dd6135495a88f82a'
-//     // remember to be able to dynamically search query
-//     recipeQueryURL = 'https://api.edamam.com/search?q=chicken&app_id=' + recipeApiID + '&app_key=' + recipeApiKey;
 
-//     $.ajax({
-//         url: recipeQueryURL,
-//         method: "GET",
-//         cors: true
-//     }).then(function (response) {
-//         console.log(recipeQueryURL)
-//         console.log(response)
-//     })
-// })
 
-$(".card-content").on("click", function () {
-    gameQueryURL = "https://www.cheapshark.com/api/1.0/deals"
 
-    $.ajax({
-        url: gameQueryURL,
-        method: "GET",
-    }).then(function (response) {
-        console.log(gameQueryURL);
-        console.log(response);
-    });
+// ----------------------------------Games Div--------------------------------------------
+$(".games-div").on("click", function () {
+    document.querySelector(".games-search").style.display = "block";
+    document.querySelector("#desc-card").style.display = "none";
+    document.querySelector(".previews").style.display = "none";
+    document.querySelector(".recipes-search").style.display = "none";
 })
 
+$(".games-submit").on("click", function () {
+    var gameName = $("#game-name").val()
+    var sortBy = $("#sort-by-games").val()
+    var metaCritic = $("#metacritic-games").val()
 
 
-// addEventListner for on('click') [ Recipes | Games ]
-// add style.display = 'none'/'block' features - Hides or displays
-// Relocate AJAX functions
-// target specific information that you want to display from APIKey
-// Impliment either checkbox or input field to send criteria call to key
-
-apiID = '874acb4d'
-apiKey = 'e13047121612bd90dd6135495a88f82a'	
-// queryURL = "https://api.edamam.com/search?q=chicken" + apiKey
-
-queryURL = 'https://api.edamam.com/search?q=chicken&app_id='+ apiID+ '&app_key=' + apiKey + '&from=0&to=3&calories=591-722&health=alcohol-free'
-
-
-$.ajax({
-    url: queryURL,
-    method: "GET",
-    cors: true
-}).then(function(response) {
-    console.log(queryURL)
-    console.log(response)
+    console.log(gameName, sortBy, metaCritic);
 })
 
+gameQueryURL = "https://www.cheapshark.com/api/1.0/deals"
 
-queryURL = "https://www.cheapshark.com/api/1.0/deals"
 $.ajax({
-    url: queryURL,
+    url: gameQueryURL,
     method: "GET",
-}).then(function(response) {
-    console.log(queryURL);
+}).then(function (response) {
+    console.log(gameQueryURL);
     console.log(response);
 });
+
+
+
+// ----------------------------------Recipes Div--------------------------------------------
+$(".recipes-div").on("click", function () {
+    document.querySelector(".games-search").style.display = "none";
+    document.querySelector("#desc-card").style.display = "none";
+    document.querySelector(".previews").style.display = "none";
+    document.querySelector(".recipes-search").style.display = "block";
+})
+
+$(".recipe-submit").on("click", function () {
+    var cuisineType = $("#cuisine-type").val()
+    var mealType = $("#meal-type-recipes").val()
+
+    console.log(mealType,cuisineType)
+
+
+    // let recipeApiID = '874acb4d'
+    let recipeApiKey = 'dc12cf1052074e368a0d30c4e037c61d'
+    let recipeQueryURL = 'https://api.spoonacular.com/recipes/complexSearch?' + '&query=' + cuisineType + '&type=' + mealType + '&apiKey=' + recipeApiKey
+    $.ajax({
+        url: recipeQueryURL,
+        method: "GET",
+    }).then(function (response) {
+        console.log(recipeQueryURL)
+        console.log(response)
+        createResultsRow($('#preview-div'), 3)
+        createResultsRow($('#preview-div'), 3)
+        createResultsRow($('#preview-div'), 3)
+
+
+        for (i = 0; i < 9; i++) {
+            
+            let titleDiv = $('<p>').text(response.results[i].title)
+            let imgDiv = $('<img>').attr("src", response.results[i].image)
+            console.log(titleDiv, imgDiv)
+            $('#id' + i).append(imgDiv,titleDiv)
+        }
+
+    })
+})
+

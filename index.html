@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,51 +8,127 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <h1 class="is-size-3">Fun Finder</h1>
-            <!-- add burger menu if we can -->
-            <!-- <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <h1 class="is-size-3">Fun Finder</h1>
+        <!-- add burger menu if we can -->
+        <!-- <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a> -->
-        </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item games-dir">
-                    Games
-                </a>
-                <a class="navbar-item recipes-dir">
-                    Recipes
-                </a>
-                <!-- commented out just incase we want it later -->
-                <!-- <div class="navbar-dropdown">
-                </div> --> 
-              
-            </div>
-        </div>
-        <!-- commented out just incase we want it late -->
-        <!-- <div class="navbar-end">
-        </div> -->
-        </div>
-    </nav>
-<body class="has-navbar-fixed-top"></html>
-    <div class="container">
-        <div class="columns">
-            <div class="column" id = "description-div">
-                <!-- description/search parameters -->
-            </div>
-            <div class="column" id = "preview-div">
-                <!-- previews -->
-            </div>
-            
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start ">
+            <a class="navbar-item games-div">
+                Games
+            </a>
+            <a class="navbar-item recipes-div">
+                Recipes
+            </a>
+            <!-- commented out just incase we want it later -->
+            <!-- <div class="navbar-dropdown">
+                </div> -->
+
         </div>
     </div>
+    <!-- commented out just incase we want it late -->
+    <!-- <div class="navbar-end">
+        </div> -->
+    </div>
+</nav>
+
+<body class="has-navbar-fixed-top">
+
+</html>
+<div class="container">
+    <div class="columns">
+        <div class="column" id="description-div">
+            <div class="card" id=desc-card>
+                <div class="card-content">
+                    <p id="desc-p">Finding activities to do for people to do since 2021!</p>
+                    <img src="https://media0.giphy.com/media/l3nF9sTLLFKChiNqM/200.webp?cid=ecf05e47mdb46iucmwog7t39vbg2lbovk4tttzojstozvuui&rid=200.webp"
+                        alt="spongebob"></a>
+                </div>
+            </div>
+
+            <!--------------------Games search query---------------------->
+            <div class="card games-search" style.display="none">
+                <div class="card-content">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-danger is-rounded mt-4" type="text"
+                                placeholder="Game keyword : ex) Mario/Skyrim" id="game-name">
+                        </div>
+                    </div>
+                    <div class="select is-rounded is-danger mt-3">
+                        <select id="sort-by-games">
+                            <option>Sort By:</option>
+                            <option value="deal rating">Deal Rating</option>
+                            <option value="title">Title</option>
+                            <option value="price">Price</option>
+                            <option value="reviews">Reviews</option>
+                            <option value="release">Release Date</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="select is-rounded is-danger mt-3">
+                        <select id="metacritic-games">
+                            <option value="" disabled selected hidden>Metacritic score</option>
+                            <option value="90">90+</option>
+                            <option value="80">80+</option>
+                            <option value="70">70+</option>
+                            <option value="60">60+</option>
+                            <option value="50">50+</option>
+                            <option value="0">any</option>
+                        </select>
+                    </div>
+
+
+                    <div class="buttons">
+                        <button class="button is-success games-submit mt-4">Search Games!</button>
+                    </div>
+                </div>
+            </div>
+            <!--------------------Recipes search query---------------------->
+            <div class="card recipes-search">
+                <div class="card-content">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-light is-warning is-rounded mt-4" type="text"
+                                placeholder="Cuisine Type : ex) Asian/Italian/Indian" id="cuisine-type">
+
+                        </div>
+                    </div>
+                    <div class="select is-rounded is-light is-warning mt-3" id="meal-type">
+                        <select id="meal-type-recipes">
+                            <option>Meal Type:</option>
+                            <option value="breakfast">Breakfast</option>
+                            <option value="main course">Main Course</option>
+                            <option value="dessert">dessert</option>
+                            <option value="snack">Snack</option>
+                        </select>
+                    </div>
+
+                    <br>
+                    <div class="buttons">
+                        <button class="button is-success recipe-submit mt-4">Search Recipes!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column" id="preview-div">
+            <!-- previews -->
+        </div>
+
+    </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./script.js"></script>
 
-</body>
-</html>
+    </body>
+
+    </html>
