@@ -99,7 +99,7 @@ $(".recipe-submit").on("click", function () {
     var cuisineType = $("#cuisine-type").val()
     var mealType = $("#meal-type-recipes").val()
 
-    console.log(mealType, cuisineType)
+    console.log(mealType,cuisineType)
 
 
     // let recipeApiID = '874acb4d'
@@ -117,11 +117,11 @@ $(".recipe-submit").on("click", function () {
 
 
         for (i = 0; i < 9; i++) {
-            // let idDiv = response.id;
+            
             let titleDiv = $('<p>').text(response.results[i].title)
             let imgDiv = $('<img>').attr("src", response.results[i].image)
             console.log(titleDiv, imgDiv)
-            $('#id' + i).append(imgDiv, titleDiv)
+            $('#id' + i).append(imgDiv,titleDiv)
         }
 
     })
