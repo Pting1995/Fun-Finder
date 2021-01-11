@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,56 +8,146 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <h1 class="is-size-3">Fun Finder</h1>
-            <!-- add burger menu if we can -->
-            <!-- <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <h1 class="is-size-3">Fun Finder</h1>
+        <!-- add burger menu if we can -->
+        <!-- <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a> -->
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start ">
+            <a class="navbar-item games-div">
+                Games
+            </a>
+            <a class="navbar-item recipes-div">
+                Recipes
+            </a>
+            <!-- commented out just incase we want it later -->
+            <!-- <div class="navbar-dropdown">
+                </div> -->
+
         </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item section-games">
-                    Games
-                </a>
-      
-                <a class="navbar-item section-movie">
-                    Movie
-                </a>
-                <!-- commented out just incase we want it later -->
-                <!-- <div class="navbar-dropdown">
-                </div> --> 
-              
-            </div>
-        </div>
-        <!-- commented out just incase we want it late -->
-        <!-- <div class="navbar-end">
+    </div>
+    <!-- commented out just incase we want it late -->
+    <!-- <div class="navbar-end">
         </div> -->
-        </div>
-    </nav>
-<body class="has-navbar-fixed-top"></html>
-    <div class="container">
-        <div class="columns">
-            <div class="column" id="description-div">
-                <div class="card" id="desc-card">
-                    <div class="card-content">
-                        <p id="desc-p">Finding activities to do for people to do since 2021!</p>
-                        <img src="https://media0.giphy.com/media/l3nF9sTLLFKChiNqM/200.webp?cid=ecf05e47mdb46iucmwog7t39vbg2lbovk4tttzojstozvuui&rid=200.webp" alt="spongebob"></a>
+    </div>
+</nav>
+
+<body class="has-navbar-fixed-top">
+
+</html>
+<div class="container">
+    <div class="columns">
+        <div class="column" id="description-div">
+            <div class="card" id=desc-card>
+                <div class="card-content">
+                    <p id="desc-p">Finding activities to do for people to do since 2021!</p>
+                    <img src="https://media0.giphy.com/media/l3nF9sTLLFKChiNqM/200.webp?cid=ecf05e47mdb46iucmwog7t39vbg2lbovk4tttzojstozvuui&rid=200.webp"
+                        alt="spongebob"></a>
+                </div>
+            </div>
+
+            <!--------------------Games search query---------------------->
+            <div class="card games-search" style.display="none">
+                <div class="card-content">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-danger is-rounded mt-4" type="text" placeholder="Game keyword: ex) Mario/Skyrim" id = "game-name">
+                        </div>
+                    </div>
+                    <div class="select is-rounded is-danger mt-3">
+                        <select id="sort-by-games">
+                            <option value="Title" hidden>Sort By:</option>
+                            <option value="Deal Rating">Deal Rating</option>
+                            <option value="Title">Title</option>
+                            <option value="Price">Price</option>
+                            <option value="Reviews">Reviews</option>
+                            <option value="Release">Release Date</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="select is-rounded is-danger mt-3">
+                        <select id="metacritic-games">
+                            <option value="0" hidden>Metacritic score</option>
+                            <option value="90">90+</option>
+                            <option value="80">80+</option>
+                            <option value="70">70+</option>
+                            <option value="60">60+</option>
+                            <option value="50">50+</option>
+                            <option value="0">any</option>
+                        </select>
+                    </div>
+                    
+
+                    <div class="buttons">
+                        <button class="button is-success games-submit mt-4">Search Games!</button>
                     </div>
                 </div>
             </div>
-            <div class="column" id = "preview-div">
-                <!-- previews -->
+            <!--------------------Recipes search query---------------------->
+            <div class="card recipes-search">
+                <div class="card-content">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-light is-warning is-rounded mt-4"  type="text" placeholder="Cuisine Type : ex) Asian/Italian/Indian" id="cuisine-type">
+                            
+                        </div>
+                    </div>
+                    <div class="select is-rounded is-light is-warning mt-3" id="meal-type">
+                        <select id="meal-type-recipes">
+                            <option value="" disabled selected hidden>Meal Type:</option>
+                            <option value="breakfast">Breakfast</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="dinner">Dinner</option> 
+                            <option value="snack">Snack</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="select is-rounded is-light is-warning mt-3" id="protein-type">
+                        <select id="protein-recipes">
+                            <option value="" disabled selected hidden>Select Protein:</option>
+                            <option vlaue="chicken">Chicken</option>
+                            <option value="pork"> Pork</option>
+                            <option value="beef"> Beef</option>
+                            <option value="fish">Fish</option>
+                            <option value="vegetarian">Vegetarian</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="select is-rounded is-light is-warning mt-3" id="diet-type">
+                        <select id="diet-recipes">
+                            <option value="" disabled selected hidden>Diet Type:</option>
+                            <option value="balanced">Balanced</option>
+                            <option value="high-protein">High-protein</option>
+                            <option value="low-carb">Low-Carb</option>
+                            <option value="Low-fat">Low-fat</option>
+                            <option value="low-sodium">Low-Sodium</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="buttons">
+                        <button class="button is-success recipe-submit mt-4">Search Recipes!</button>
+                    </div>
+                </div>
             </div>
-            
         </div>
+
+        <div class="column" id="preview-div">
+            <!-- previews -->
+        </div>
+
     </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./script.js"></script>
-</body>
-</html>
+
+    </body>
+
+    </html>
