@@ -1,5 +1,4 @@
 document.querySelector(".games-search").style.display = "none"
-
 document.querySelector(".films-search").style.display = "none"
 document.querySelector(".recipes-search").style.display = "none"
 
@@ -56,6 +55,31 @@ function createResultsRow(area, n) {
 createPreviewRow($("#preview-div"), 3);
 // createResultsRow($("#preview-div"), 3);
 
+
+
+// -----------------------------Home Div ----------------------------------------------
+
+$(".home-div").on("click", function(){
+
+    notie.alert({
+        type: 'success',
+        text: 'Back to home Screen!',
+        stay: false,
+        time: 3,
+        position: 'bottom'
+    })
+
+    document.querySelector("#desc-card").style.display = "block";
+    document.querySelector(".previews").style.display = "block";
+    document.querySelector(".games-search").style.display="none";
+    document.querySelector(".recipes-search").style.display = "none";
+    document.querySelector(".films-search").style.display= "none";
+    
+
+
+})
+
+
 // ----------------------------------Games Div--------------------------------------------
 $(".games-div").on("click", function () {
     notie.alert({
@@ -69,6 +93,7 @@ $(".games-div").on("click", function () {
     document.querySelector("#desc-card").style.display = "none";
     document.querySelector(".previews").style.display = "none";
     document.querySelector(".recipes-search").style.display = "none";
+    document.querySelector(".films-search").style.display = "none";
 })
 
 $(".games-submit").on("click", function () {
@@ -91,6 +116,7 @@ $(".games-submit").on("click", function () {
     }).then(function (response) {
         console.log(gameQueryURL);
         console.log(response);
+        $("preview-div").empty();
         createResultsRow($("#preview-div"), 3);
         createResultsRow($("#preview-div"), 3);
         createResultsRow($("#preview-div"), 3);
@@ -121,6 +147,7 @@ $(".movies-div").on("click", function () {
     document.querySelector("#desc-card").style.display = "none";
     document.querySelector(".previews").style.display = "none";
     document.querySelector(".films-search").style.display = "block";
+    document.querySelector(".recipes-search").style.display = "none";
 })
 
 $(".movies-submit").on("click", function () {
@@ -143,6 +170,7 @@ $(".movies-submit").on("click", function () {
         url: movieQueryURL,
         method: "GET",
     }).then(function (response) {
+        $("preview-div").empty();
         console.log(movieQueryURL)
         console.log(response)
         createResultsRow($('#preview-div'), 3)
@@ -162,6 +190,7 @@ $(".movies-submit").on("click", function () {
 
 // ----------------------------------Recipes Div--------------------------------------------
 $(".recipes-div").on("click", function () {
+    
         notie.alert({
             type: 'success',
             text: 'You clicked on the recipe section!',
@@ -174,6 +203,7 @@ $(".recipes-div").on("click", function () {
     document.querySelector("#desc-card").style.display = "none";
     document.querySelector(".previews").style.display = "none";
     document.querySelector(".recipes-search").style.display = "block";
+    document.querySelector(".films-search").style.display = "none";
 })
 
 $(".recipe-submit").on("click", function () {
@@ -203,7 +233,6 @@ $(".recipe-submit").on("click", function () {
         createResultsRow($('#preview-div'), 3);
 
         for (i = 0; i < 9; i++) {
-            // let idDiv = response.id;
             let titleDiv = $('<p>').text(response.results[i].title);
             let imgDiv = $('<img>').attr("src", response.results[i].image);
             console.log(titleDiv, imgDiv);

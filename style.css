@@ -1,3 +1,7 @@
 .card-content {
-    background-color: turquoise;
+    background-color: lightgray;
+}
+
+#desc-p {
+    font-family: 'Times New Roman', Times, serif;
 }
