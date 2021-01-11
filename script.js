@@ -1,27 +1,30 @@
-document.querySelector(".games-search").style.display="none"
-document.querySelector(".recipes-search").style.display="none"
+document.querySelector(".games-search").style.display = "none"
+document.querySelector(".films-search").style.display = "none"
+document.querySelector(".recipes-search").style.display = "none"
 
-
-var k = 0
+var k = 0;
 function createPreviewRow(area, n) {
     // update arrays when a new api is added
     var arrImg = [
         "https://cdn.cnn.com/cnnnext/dam/assets/210104111236-beginner-gaming-pc-super-169.jpg",
+        "https://res.cloudinary.com/people-matters/image/upload/q_auto,f_auto/v1517845732/1517845731.jpg",
         "https://media3.s-nbcnews.com/j/newscms/2019_41/3044956/191009-cooking-vegetables-al-1422_ae181a762406ae9dce02dd0d5453d1ba.fit-2000w.jpg"
     ]
+
     // array of class names go here
     let divSubjects = [
         "games-div games-preview",
+        "movies-div movies-preview",
         "recipes-div recipes-preview"
     ]
-   
-    let rowDiv = $("<div>").addClass("columns previews")
+
+    let rowDiv = $("<div>").addClass("columns previews");
     for (i = 0; i < n; i++) {
-        let colDiv = $("<div>").addClass("column")
-        let cardDiv = $("<div>").addClass("card")
-        let cardContentDiv= $("<div>").addClass(divSubjects[i])
-        cardContentDiv.addClass("card-content")
-        let img = $("<img>").attr("src", arrImg[i]) 
+        let colDiv = $("<div>").addClass("column");
+        let cardDiv = $("<div>").addClass("card");
+        let cardContentDiv = $("<div>").addClass(divSubjects[i]);
+        cardContentDiv.addClass("card-content");
+        let img = $("<img>").attr("src", arrImg[i]);
 
         rowDiv.append(colDiv);
         colDiv.append(cardDiv);
@@ -34,52 +37,51 @@ function createPreviewRow(area, n) {
 var j = 0;
 function createResultsRow(area, n) {
 
-    let rowDiv = $("<div>").addClass("columns")
+    let rowDiv = $("<div>").addClass("columns");
     for (i = 0; i < n; i++) {
-        let colDiv = $("<div>").addClass("column")
-        let cardDiv = $("<div>").addClass("card")
-        let cardContentDiv = $("<div>").addClass("card-content")
-        cardContentDiv.attr("id", "id" + j)
+        let colDiv = $("<div>").addClass("column");
+        let cardDiv = $("<div>").addClass("card");
+        let cardContentDiv = $("<div>").addClass("card-content");
+        cardContentDiv.attr("id", "id" + j);
 
-        rowDiv.append(colDiv)
-        colDiv.append(cardDiv)
-        cardDiv.append(cardContentDiv)
+        rowDiv.append(colDiv);
+        colDiv.append(cardDiv);
+        cardDiv.append(cardContentDiv);
         area.append(rowDiv);
-        j++
+        j++;
     }
 }
-
-// example
-createPreviewRow($("#preview-div"), 2);
+createPreviewRow($("#preview-div"), 3);
 // createResultsRow($("#preview-div"), 3);
-
-// 1. create an array inside previewrow function that contains the genre types (games, recipes)
-// 2 change the addeventlistener class tag
-
-
-
 
 // ----------------------------------Games Div--------------------------------------------
 $(".games-div").on("click", function () {
     notie.alert({
-        type: 'success', // optional, default = 4, enum: [1, 2, 3, 4, 5, 'success', 'warning', 'error', 'info', 'neutral']
+        type: 'success',
         text: 'You clicked on games section!',
-        stay: false, // optional, default = false
-        time: 3, // optional, default = 3, minimum = 1,
-        position: 'bottom' // optional, default = 'top', enum: ['top', 'bottom']
-      })
-    document.querySelector(".games-search").style.display="block";
-    document.querySelector("#desc-card").style.display="none";
-    document.querySelector(".previews").style.display="none";
-    document.querySelector(".recipes-search").style.display="none";
+        stay: false,
+        time: 3,
+        position: 'bottom'
+    })
+    document.querySelector(".games-search").style.display = "block";
+    document.querySelector("#desc-card").style.display = "none";
+    document.querySelector(".previews").style.display = "none";
+    document.querySelector(".recipes-search").style.display = "none";
 })
 
 $(".games-submit").on("click", function () {
-    var gameName = $("#game-name").val()
-    var sortBy = $("#sort-by-games").val()
-    var meta = $("#metacritic-games").val()
-    
-    gameQueryURL = "https://www.cheapshark.com/api/1.0/deals?title=" + gameName + "&sortBy=" + sortBy + "&metacritic=" + meta 
+    notie.alert({
+        type: 'success',
+        text: 'You are searching in the games section!',
+        stay: false,
+        time: 3,
+        position: 'bottom'
+    })
+    var gameName = $("#game-name").val();
+    var sortBy = $("#sort-by-games").val();
+    var meta = $("#metacritic-games").val();
+
+    gameQueryURL = "https://www.cheapshark.com/api/1.0/deals?title=" + gameName + "&sortBy=" + sortBy + "&metacritic=" + meta
 
     $.ajax({
         url: gameQueryURL,
@@ -91,49 +93,106 @@ $(".games-submit").on("click", function () {
         createResultsRow($("#preview-div"), 3);
         createResultsRow($("#preview-div"), 3);
         for (i = 0; i < 9; i++) {
-            var titleString = $("<p>").text("Title: " + response[i].title)
-            var img = $("<img>").attr("src", response[i].thumb)
-            var metacritic = $("<p>").text("Metacritic score: " + response[i].metacriticScore)
-            var steamRating = $("<p>").text("Steam Rating: " + response[i].steamRatingPercent)
-            var onSale = $("<p>").text("On Sale Price: " + response[i].salePrice)
-            var normPrice = $("<p>").text("Normal Price: " + response[i].normalPrice)
+            var titleString = $("<p>").text("Title: " + response[i].title);
+            var img = $("<img>").attr("src", response[i].thumb);
+            var metacritic = $("<p>").text("Metacritic score: " + response[i].metacriticScore);
+            var steamRating = $("<p>").text("Steam Rating: " + response[i].steamRatingPercent);
+            var onSale = $("<p>").text("On Sale Price: " + response[i].salePrice);
+            var normPrice = $("<p>").text("Normal Price: " + response[i].normalPrice);
 
-            $("#id" + i).append(titleString, img, metacritic, steamRating, onSale, normPrice)
+            $("#id" + i).append(titleString, img, metacritic, steamRating, onSale, normPrice);
             // console.log($("#id" + i))
         }
     });
 })
 
-    // ----------------------------------Recipes Div--------------------------------------------
-$(".recipes-div").on("click", function () {
-    document.querySelector(".games-search").style.display="none";
-    document.querySelector("#desc-card").style.display="none";
-    document.querySelector(".previews").style.display="none";
-    document.querySelector(".recipes-search").style.display="block";
+// ----------------------------------Movies Div--------------------------------------------
+$(".movies-div").on("click", function () {
+    notie.alert({
+        type: 'success',
+        text: 'You clicked on the movies section!',
+        stay: false,
+        time: 3,
+        position: 'bottom'
+    })
+    document.querySelector(".games-search").style.display = "none";
+    document.querySelector("#desc-card").style.display = "none";
+    document.querySelector(".previews").style.display = "none";
+    document.querySelector(".films-search").style.display = "block";
 })
 
-$(".recipe-submit").on("click", function (){
-    var cuisineType= $("#cuisine-type").val()
-    var mealType= $("#meal-type-recipes").val()
-    var proteinType= $("#protein-recipes").val()
-    var dietType= $("#diet-recipes").val()
-    console.log(mealType,proteinType,dietType,cuisineType)
+$(".movies-submit").on("click", function () {
+    notie.alert({
+        type: 'success',
+        text: 'You are searching in the movies section!',
+        stay: false,
+        time: 3,
+        position: 'bottom'
+    })
+    var filmKeyword = $("#film-keyword").val();
+    var movieType = $("#movie-type").val();
+
+    console.log(movieType, filmKeyword)
+
+    let movieApiKey = '2d0f5a76';
+    let movieQueryURL = 'https://omdbapi.com/?' + 's=' + filmKeyword + '&type=' + movieType + '&apikey=' + movieApiKey;
+
+    $.ajax({
+        url: movieQueryURL,
+        method: "GET",
+    }).then(function (response) {
+        console.log(movieQueryURL)
+        console.log(response)
+        createResultsRow($('#preview-div'), 3)
+        createResultsRow($('#preview-div'), 3)
+        createResultsRow($('#preview-div'), 3)
 
 
-let recipeApiID = '874acb4d'
-    let recipeApiKey = 'e13047121612bd90dd6135495a88f82a'
-    recipeQueryURL = 'https://api.edamam.com/search?q=' + proteinType + '&app_id=' + recipeApiID + '&app_key=' + recipeApiKey + '&dietType=' + dietType;
+        for (i = 0; i < 9; i++) {
+            let titleDiv = $('<p>').text(response.Search[i].Title);
+            let imgDiv = $('<img>').attr("src", response.Search[i].Poster);
+            console.log(titleDiv, imgDiv);
+            $("#id" + i).append(titleDiv, imgDiv);
+        }
 
+    })
+})
+
+// ----------------------------------Recipes Div--------------------------------------------
+$(".recipes-div").on("click", function () {
+    // add notie
+    document.querySelector(".games-search").style.display = "none";
+    document.querySelector("#desc-card").style.display = "none";
+    document.querySelector(".previews").style.display = "none";
+    document.querySelector(".recipes-search").style.display = "block";
+})
+
+$(".recipe-submit").on("click", function () {
+    // add notie
+    var cuisineType = $("#cuisine-type").val();
+    var mealType = $("#meal-type-recipes").val();
+
+    console.log(mealType, cuisineType)
+
+    let recipeApiKey = 'dc12cf1052074e368a0d30c4e037c61d'
+    let recipeQueryURL = 'https://api.spoonacular.com/recipes/complexSearch?' + '&query=' + cuisineType + '&type=' + mealType + '&apiKey=' + recipeApiKey
     $.ajax({
         url: recipeQueryURL,
         method: "GET",
-        cors: true
     }).then(function (response) {
         console.log(recipeQueryURL)
         console.log(response)
+        createResultsRow($('#preview-div'), 3);
+        createResultsRow($('#preview-div'), 3);
+        createResultsRow($('#preview-div'), 3);
+
+
+        for (i = 0; i < 9; i++) {
+            // let idDiv = response.id;
+            let titleDiv = $('<p>').text(response.results[i].title);
+            let imgDiv = $('<img>').attr("src", response.results[i].image);
+            console.log(titleDiv, imgDiv);
+            $('#id' + i).append(imgDiv, titleDiv);
+        }
     })
 })
-// function createQuery (){
-
-
-// }

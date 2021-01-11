@@ -6,24 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
-  <style>
-    /* override styles here */
-    .notie-container {
-      box-shadow: none;
-    }
-  </style>
+    <style>
+        /* override styles here */
+        .notie-container {
+            box-shadow: none;
+        }
+    </style>
     <link rel="stylesheet" href="style.css">
     <title>Fun Finder</title>
 </head>
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <h1 class="is-size-3">Fun Finder</h1>
-        <!-- add burger menu if we can -->
-        <!-- <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a> -->
     </div>
 
     <div id="navbarBasicExample" class="navbar-menu">
@@ -31,18 +25,13 @@
             <a class="navbar-item games-div">
                 Games
             </a>
+            <a class="navbar-item movies-div">
+                Movies
+            </a>
             <a class="navbar-item recipes-div">
                 Recipes
             </a>
-            <!-- commented out just incase we want it later -->
-            <!-- <div class="navbar-dropdown">
-                </div> -->
-
         </div>
-    </div>
-    <!-- commented out just incase we want it late -->
-    <!-- <div class="navbar-end">
-        </div> -->
     </div>
 </nav>
 
@@ -65,7 +54,8 @@
                 <div class="card-content">
                     <div class="field">
                         <div class="control">
-                            <input class="input is-danger is-rounded mt-4" type="text" placeholder="Game keyword: ex) Mario/Skyrim" id = "game-name">
+                            <input class="input is-danger is-rounded mt-4" type="text"
+                                placeholder="Game keyword: ex) Mario/Skyrim" id="game-name">
                         </div>
                     </div>
                     <div class="select is-rounded is-danger mt-3">
@@ -90,10 +80,34 @@
                             <option value="0">any</option>
                         </select>
                     </div>
-                    
+
 
                     <div class="buttons">
                         <button class="button is-success games-submit mt-4">Search Games!</button>
+                    </div>
+                </div>
+            </div>
+            <!--------------------Recipes search query---------------------->
+            <div class="card films-search">
+                <div class="card-content">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-light is-warning is-rounded mt-4" type="text"
+                                placeholder="Film keyword" id="film-keyword">
+
+                        </div>
+                    </div>
+                    <div class="select is-rounded is-light is-warning mt-3" id="movie-type">
+                        <select id="movie-type">
+                            <option>Film type:</option>
+                            <option value="movie">Movie</option>
+                            <option value="series">Series</option>
+                            <option value="episode">Episode</option>
+                        </select>
+                    </div>
+                    </br>
+                    <div class="buttons">
+                        <button class="button is-success movies-submit mt-4">Search Recipes!</button>
                     </div>
                 </div>
             </div>
@@ -102,41 +116,21 @@
                 <div class="card-content">
                     <div class="field">
                         <div class="control">
-                            <input class="input is-light is-warning is-rounded mt-4"  type="text" placeholder="Cuisine Type : ex) Asian/Italian/Indian" id="cuisine-type">
-                            
+                            <input class="input is-light is-success is-rounded mt-4" type="text"
+                                placeholder="Cuisine Type : ex) Asian/Italian/Indian" id="cuisine-type">
+
                         </div>
                     </div>
-                    <div class="select is-rounded is-light is-warning mt-3" id="meal-type">
+                    <div class="select is-rounded is-light is-success mt-3" id="meal-type">
                         <select id="meal-type-recipes">
-                            <option value="" disabled selected hidden>Meal Type:</option>
+                            <option>Meal Type:</option>
                             <option value="breakfast">Breakfast</option>
-                            <option value="lunch">Lunch</option>
-                            <option value="dinner">Dinner</option> 
+                            <option value="main course">Main Course</option>
+                            <option value="dessert">dessert</option>
                             <option value="snack">Snack</option>
                         </select>
                     </div>
-                    <br>
-                    <div class="select is-rounded is-light is-warning mt-3" id="protein-type">
-                        <select id="protein-recipes">
-                            <option value="" disabled selected hidden>Select Protein:</option>
-                            <option vlaue="chicken">Chicken</option>
-                            <option value="pork"> Pork</option>
-                            <option value="beef"> Beef</option>
-                            <option value="fish">Fish</option>
-                            <option value="vegetarian">Vegetarian</option>
-                        </select>
-                    </div>
-                    <br>
-                    <div class="select is-rounded is-light is-warning mt-3" id="diet-type">
-                        <select id="diet-recipes">
-                            <option value="" disabled selected hidden>Diet Type:</option>
-                            <option value="balanced">Balanced</option>
-                            <option value="high-protein">High-protein</option>
-                            <option value="low-carb">Low-Carb</option>
-                            <option value="Low-fat">Low-fat</option>
-                            <option value="low-sodium">Low-Sodium</option>
-                        </select>
-                    </div>
+
                     <br>
                     <div class="buttons">
                         <button class="button is-success recipe-submit mt-4">Search Recipes!</button>
@@ -144,18 +138,17 @@
                 </div>
             </div>
         </div>
-
         <div class="column" id="preview-div">
             <!-- previews -->
         </div>
-
     </div>
+</div>
 
-    <script src="https://unpkg.com/notie"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
-    <script src="./script.js"></script>
+<script src="https://unpkg.com/notie"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    </body>
+<script src="./script.js"></script>
 
-    </html>
+</body>
+
+</html>
