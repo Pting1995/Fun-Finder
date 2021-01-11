@@ -162,7 +162,14 @@ $(".movies-submit").on("click", function () {
 
 // ----------------------------------Recipes Div--------------------------------------------
 $(".recipes-div").on("click", function () {
-    // add notie
+        notie.alert({
+            type: 'success',
+            text: 'You clicked on the recipe section!',
+            stay: false,
+            time: 3,
+            position: 'bottom'
+        })
+
     document.querySelector(".games-search").style.display = "none";
     document.querySelector("#desc-card").style.display = "none";
     document.querySelector(".previews").style.display = "none";
@@ -170,7 +177,14 @@ $(".recipes-div").on("click", function () {
 })
 
 $(".recipe-submit").on("click", function () {
-    // add notie
+    notie.alert({
+        type: 'success',
+        text: 'You are searching in the recipe section!',
+        stay: false,
+        time: 3,
+        position: 'bottom'
+    })
+    
     var cuisineType = $("#cuisine-type").val();
     var mealType = $("#meal-type-recipes").val();
 
