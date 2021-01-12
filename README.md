@@ -45,6 +45,7 @@ let recipeApiKey = 'dc12cf1052074e368a0d30c4e037c61d'
 </ul>
 
 # **Code Snippet**
+This is our preview row code snippet. The main things to take note of is that there are two arrays, one for images and one that assigns classes. Because of the array we can dynamically create a column and scale it to as many subjects we have, in this case it is 3 subjects. Also the code showcases a variable which is “area” which is where the appended divs will be placed and “n” which is the amount of times we want the function to iterate
 ```js
 function createPreviewRow(area, n) {
     // update arrays when a new api is added
