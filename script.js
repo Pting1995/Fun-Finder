@@ -125,8 +125,8 @@ $(".games-submit").on("click", function () {
             var img = $("<img>").attr("src", response[i].thumb);
             var metacritic = $("<p>").text("Metacritic score: " + response[i].metacriticScore);
             var steamRating = $("<p>").text("Steam Rating: " + response[i].steamRatingPercent);
-            var onSale = $("<p>").text("On Sale Price: " + response[i].salePrice);
-            var normPrice = $("<p>").text("Normal Price: " + response[i].normalPrice);
+            var onSale = $("<p>").text("On Sale Price: $" + response[i].salePrice);
+            var normPrice = $("<p>").text("Normal Price: $" + response[i].normalPrice);
 
             $("#id" + i).append(titleString, img, metacritic, steamRating, onSale, normPrice);
             // console.log($("#id" + i))
