@@ -2,6 +2,7 @@ document.querySelector(".games-search").style.display = "none"
 document.querySelector(".films-search").style.display = "none"
 document.querySelector(".recipes-search").style.display = "none"
 
+// Function to create preview row dynamically
 var k = 0;
 function createPreviewRow(area, n) {
     // update arrays when a new api is added
@@ -34,6 +35,7 @@ function createPreviewRow(area, n) {
     }
 }
 
+// Function to create results row dynamically
 var j = 0;
 function createResultsRow(area, n) {
 
@@ -53,13 +55,11 @@ function createResultsRow(area, n) {
     }
 }
 createPreviewRow($("#preview-div"), 3);
-// createResultsRow($("#preview-div"), 3);
-
 
 
 // -----------------------------Home Div ----------------------------------------------
 
-$(".home-div").on("click", function(){
+$(".home-div").on("click", function () {
 
     notie.alert({
         type: 'success',
@@ -71,14 +71,10 @@ $(".home-div").on("click", function(){
 
     document.querySelector("#desc-card").style.display = "block";
     document.querySelector(".previews").style.display = "block";
-    document.querySelector(".games-search").style.display="none";
+    document.querySelector(".games-search").style.display = "none";
     document.querySelector(".recipes-search").style.display = "none";
-    document.querySelector(".films-search").style.display= "none";
-    
-
-
+    document.querySelector(".films-search").style.display = "none";
 })
-
 
 // ----------------------------------Games Div--------------------------------------------
 $(".games-div").on("click", function () {
@@ -96,6 +92,7 @@ $(".games-div").on("click", function () {
     document.querySelector(".films-search").style.display = "none";
 })
 
+// Event listener that submits user inputted data into our ajax request
 $(".games-submit").on("click", function () {
     notie.alert({
         type: 'success',
@@ -135,6 +132,8 @@ $(".games-submit").on("click", function () {
 })
 
 // ----------------------------------Movies Div--------------------------------------------
+
+
 $(".movies-div").on("click", function () {
     notie.alert({
         type: 'success',
@@ -150,6 +149,7 @@ $(".movies-div").on("click", function () {
     document.querySelector(".recipes-search").style.display = "none";
 })
 
+// Event listener that submits user inputted data into our ajax request
 $(".movies-submit").on("click", function () {
     notie.alert({
         type: 'success',
@@ -190,14 +190,15 @@ $(".movies-submit").on("click", function () {
 
 // ----------------------------------Recipes Div--------------------------------------------
 $(".recipes-div").on("click", function () {
-    
-        notie.alert({
-            type: 'success',
-            text: 'You clicked on the recipe section!',
-            stay: false,
-            time: 3,
-            position: 'bottom'
-        })
+
+    // new js notification library
+    notie.alert({
+        type: 'success',
+        text: 'You clicked on the recipe section!',
+        stay: false,
+        time: 3,
+        position: 'bottom'
+    })
 
     document.querySelector(".games-search").style.display = "none";
     document.querySelector("#desc-card").style.display = "none";
@@ -206,6 +207,7 @@ $(".recipes-div").on("click", function () {
     document.querySelector(".films-search").style.display = "none";
 })
 
+// Event listener that submits user inputted data into our ajax request
 $(".recipe-submit").on("click", function () {
     notie.alert({
         type: 'success',
@@ -214,7 +216,7 @@ $(".recipe-submit").on("click", function () {
         time: 3,
         position: 'bottom'
     })
-    
+
     var cuisineType = $("#cuisine-type").val();
     var mealType = $("#meal-type-recipes").val();
 
